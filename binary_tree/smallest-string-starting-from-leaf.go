@@ -7,7 +7,7 @@
 
 // https://leetcode.cn/problems/smallest-string-starting-from-leaf/description/
 
-package Tree
+package binary_tree
 
 // 用边组装边比较的方式，来优化空间复杂度，避免存储所有路径
 func smallestFromLeaf(root *TreeNode) string {

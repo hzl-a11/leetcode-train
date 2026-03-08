@@ -6,8 +6,7 @@
 // 题目数据保证答案将会在  32 位 带符号整数范围内。
 // https://leetcode.cn/problems/maximum-width-of-binary-tree/description/
 
-package Tree
-
+package binary_tree
 func widthOfBinaryTree(root *TreeNode) int {
 	if root == nil {
 		return 0

@@ -2,8 +2,7 @@
 // 给定一棵二叉树的根节点 root ，请找出该二叉树中每一层的最大值。
 // https://leetcode.cn/problems/find-largest-value-in-each-tree-row/description/
 
-package Tree
-
+package binary_tree
 func largestValues(root *TreeNode) []int {
 	depthMaxValueMap := make(map[int]int) //key:层数 value:该层的最大值
 	var dfs func(node *TreeNode, depth int)

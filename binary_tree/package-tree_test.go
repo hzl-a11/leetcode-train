@@ -1,4 +1,4 @@
-package Tree
+package binary_tree
 
 import (
 	"testing"

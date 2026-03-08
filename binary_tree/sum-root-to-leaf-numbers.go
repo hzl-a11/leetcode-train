@@ -6,8 +6,7 @@
 // 计算从根节点到叶节点生成的 所有数字之和 。
 
 // https://leetcode.cn/problems/sum-root-to-leaf-numbers/description/
-package Tree
-
+package binary_tree
 func sumNumbers(root *TreeNode) int {
 	return sumNumbersHelper(root, 0)
 }

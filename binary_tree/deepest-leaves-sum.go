@@ -2,8 +2,7 @@
 // 给你一棵二叉树的根节点 root ，请你返回 层数最深的叶子节点的和 。
 // https://leetcode.cn/problems/deepest-leaves-sum/description/
 
-package Tree
-
+package binary_tree
 func deepestLeavesSum(root *TreeNode) int {
 	maxLevel := 0
 	levelSumMap := make(map[int]int) //key:层数 value:该层的节点值总和

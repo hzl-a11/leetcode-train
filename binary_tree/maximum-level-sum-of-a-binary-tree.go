@@ -3,8 +3,7 @@
 // 返回总和 最大 的那一层的层号 x。如果有多层的总和一样大，返回其中 最小 的层号 x。
 // https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/description/
 
-package Tree
-
+package binary_tree
 func maxLevelSum(root *TreeNode) int {
 	var dfs func(node *TreeNode, depth int)
 	levelSumMap := make(map[int]int) //key:层数 value:该层的节点值总和

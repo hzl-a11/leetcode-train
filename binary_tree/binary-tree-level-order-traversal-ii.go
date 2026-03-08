@@ -3,7 +3,7 @@
 
 // https://leetcode.cn/problems/binary-tree-level-order-traversal-ii/description/
 
-package Tree
+package binary_tree
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	result := make([][]int, 0)

@@ -4,7 +4,7 @@
 // 真二叉树 是一类二叉树，树中每个节点恰好有 0 或 2 个子节点
 // // https://leetcode.cn/problems/all-possible-full-binary-trees/description/
 
-package Tree
+package binary_tree
 
 func allPossibleFBT(n int) []*TreeNode {
 	//用分解的思路，将它拆成左子树，和右子树，左子树和右子树的节点数分别为i和n-1-i，i从1到n-1，每次递增2，因为真二叉树的节点数只能是奇数

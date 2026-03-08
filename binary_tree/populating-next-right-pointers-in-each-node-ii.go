@@ -4,8 +4,7 @@
 
 // https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/description/
 
-package Tree
-
+package binary_tree
 func connect(root *Node) *Node {
 	if root == nil {
 		return nil

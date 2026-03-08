@@ -5,7 +5,7 @@
 // 给你二叉树的根节点，如果二叉树为 奇偶树 ，则返回 true ，否则返回 false 。
 // https://leetcode.cn/problems/even-odd-tree/description/
 
-package Tree
+package binary_tree
 
 func isEvenOddTree(root *TreeNode) bool {
 	depthPreValMap := make(map[int]int) //key:层数 value:该层前一个节点的值

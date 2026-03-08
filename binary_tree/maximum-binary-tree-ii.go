@@ -13,8 +13,7 @@
 // 返回 Construct(b) 。
 // https://leetcode.cn/problems/maximum-binary-tree-ii/description/
 
-package Tree
-
+package binary_tree
 func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
 
 	// 题目描述的树是由一个列表构建的最大树，列表中的元素互不相同，且新元素被添加到列表末尾，所以新元素要么成为新的根节点，要么成为原树的右子树

@@ -5,8 +5,7 @@
 
 // https://leetcode.cn/problems/delete-nodes-and-return-forest/description/
 
-package Tree
-
+package binary_tree
 func delNodes(root *TreeNode, to_delete []int) []*TreeNode {
 	result := make([]*TreeNode, 0)
 	deletedMap := make(map[int]*TreeNode)

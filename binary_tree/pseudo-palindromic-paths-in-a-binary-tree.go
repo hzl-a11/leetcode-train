@@ -3,8 +3,7 @@
 // 请你返回从根到叶子节点的所有路径中 伪回文 路径的数目。
 // https://leetcode.cn/problems/pseudo-palindromic-paths-in-a-binary-tree/description/
 
-package Tree
-
+package binary_tree
 func pseudoPalindromicPaths(root *TreeNode) int {
 	var dfs func(node *TreeNode, count [10]int) int
 	dfs = func(node *TreeNode, count [10]int) int {

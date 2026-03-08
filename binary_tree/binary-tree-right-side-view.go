@@ -2,8 +2,7 @@
 // 给定一个二叉树的 根节点 root，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
 // https://leetcode.cn/problems/binary-tree-right-side-view/description/
 
-package Tree
-
+package binary_tree
 func rightSideView(root *TreeNode) []int {
 	//也就是找每层的最后一个节点
 	if root == nil {

@@ -7,8 +7,7 @@
 // 返回这些数字之和。题目数据保证答案是一个 32 位 整数。
 // https://leetcode.cn/problems/sum-of-root-to-leaf-binary-numbers/description/
 
-package Tree
-
+package binary_tree
 func dfs(node *TreeNode, val int) int {
 	if node == nil {
 		return 0
