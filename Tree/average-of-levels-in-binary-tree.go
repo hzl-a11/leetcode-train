@@ -2,8 +2,10 @@
 // 给定一个非空二叉树的根节点 root , 以数组的形式返回每一层节点的平均值。与实际答案相差 10-5 以内的答案可以被接受
 // https://leetcode.cn/problems/average-of-levels-in-binary-tree/description/
 
+package Tree
+
 func averageOfLevels(root *TreeNode) []float64 {
-	levelAvgMap := make(map[int]int) //key:层数 value:该层的节点值列表
+	levelAvgMap := make(map[int]int)   //key:层数 value:该层的节点值列表
 	levelCountMap := make(map[int]int) //key:层数 value:该层的节点数量
 	var dfs func(node *TreeNode, depth int)
 	dfs = func(node *TreeNode, depth int) {
