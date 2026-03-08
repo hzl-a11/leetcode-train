@@ -1,8 +1,14 @@
 package Tree
 
-//   Definition for a binary tree node.
+// Definition for a binary tree node.
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+type Node struct {
+	Val   int
+	Left  *Node
+	Right *Node
+	Next  *Node
 }
