@@ -7,48 +7,39 @@
 
 package bst_tree
 
-// 利用BTS的特性二分搜索找到要删除的节点，用要删除的节点的左子树最大值，或右子树最小只替换掉当前节点的值，然后删除
+// 利用BTS的特性二分搜索找到要删除的节点，用要删除的节点的左子树最大值，或右子树最小只替换掉当前节点的值
 func deleteNode(root *TreeNode, key int) *TreeNode {
+	// todo code review
 	if root == nil {
 		return nil
 	}
 	if root.Val == key {
-		return _executeDelete(root)
-	}
-	if root.Left != nil && root.Left.Val == key {
-		root.Left = _executeDelete(root.Left)
+		if root.Left == nil {
+			return root.Right
+		}
+		if root.Right == nil {
+			return root
+		}
+		leftChildMax := _findLeftChildMaxVal(root)
+		root.Left = deleteNode(root.Left, leftChildMax)
+		root.Val = leftChildMax
 		return root
 	}
-	if root.Right != nil && root.Right.Val == key {
-		root.Right = _executeDelete(root.Right)
+
+	if key > root.Val {
+		root.Right = deleteNode(root.Right, key)
 		return root
+	} else if key < root.Val {
+		root.Left = deleteNode(root.Left, key)
+		return root.Left
 	}
 	return root
 }
 
-func _executeDelete(node *TreeNode) *TreeNode {
-	if node == nil {
-		return nil
-	}
-	if node.Left != nil && node.Right != nil {
-		//找左子树最大的node or 右子树最小的node来接替自己
-		node.Val = _findLeftChildMaxValAndDelete(node)
-		return node
-	} else if node.Left != nil {
-		return node.Left
-	} else if node.Right != nil {
-		return node.Right
-	}
-	return nil
-}
-
-func _findLeftChildMaxValAndDelete(child *TreeNode) int {
-	pre := child
-	max := child
+func _findLeftChildMaxVal(node *TreeNode) int {
+	max := node.Left
 	for max.Right != nil {
-		pre = max
 		max = max.Right
 	}
-	pre.Right = nil
 	return max.Val
 }
