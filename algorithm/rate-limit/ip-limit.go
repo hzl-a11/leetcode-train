@@ -15,7 +15,7 @@ type IPLimiter struct {
 // ipWindow 保存单个 IP 的请求时间戳队列。
 type ipWindow struct {
 	mu          sync.Mutex
-	ts          []int64 // 历史通过了限流起的请求时间，是个环形数组
+	ts          []int64 // 存储历史请求时间戳，是个环形数组
 	lastTimeIdx int     // 环形数组当前最后一个有效元素的位置，也就是上一次请求的时间戳
 }
 
@@ -41,8 +41,6 @@ func NewIPLimiter(limit int, window time.Duration) *IPLimiter {
 // 3. 否则记录本次请求并放行。
 
 func (l *IPLimiter) Allow(ip string) bool {
-	now := time.Now().UnixNano()
-	cutoff := now - int64(l.windowNano)
 
 	// 1. 原子化加载或创建窗口数据
 	// LoadOrStore 会检查 key 是否存在，不存在则存入新创建的 ipWindow
@@ -54,7 +52,10 @@ func (l *IPLimiter) Allow(ip string) bool {
 	window.mu.Lock()
 	defer window.mu.Unlock()
 
-	//计算窗口可用容量
+	//计算当前的窗口范围
+	now := time.Now().UnixNano()
+	cutoff := now - int64(l.windowNano)
+
 	nextIdx := (window.lastTimeIdx + 1) % len(window.ts) //指向窗口中最久远的一条时间戳，同时也是新ip要写入的位置
 	if window.ts[nextIdx] > cutoff {
 		// 若窗口中最久远的一条时间戳，如果在cutoff里，说明窗口已经满了，不能加新请求，拒绝
